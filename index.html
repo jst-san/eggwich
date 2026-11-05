@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>EGGWICH — Good Food, Better Growth</title>
+    <meta name="description"
+        content="Eggwich: sandwich telur praktis dan bergizi untuk mendukung nutrisi harian anak dan keluarga.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <noscript>
+        <style>
+            .rv {
+                opacity: 1 !important;
+                transform: none !important
+            }
+        </style>
+    </noscript>
+    <style>
+        :root {
+            --bg: #F3F0E8;
+            --ink: #161614;
+            --mute: #6C6B63;
+            --line: rgba(22, 22, 20, .14);
+            --sage: #47664F;
+            --sage2: #DCE3D3;
+            --yolk: #E9B72C;
+            --pad: clamp(20px, 4vw, 56px)
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 76px
+        }
+
+        body {
+            font: 400 14px/1.65 'Plus Jakarta Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+            color: inherit
+        }
+
+        button {
+            cursor: pointer;
+            background: none;
+            border: 0
+        }
+
+        ol,
+        ul {
+            list-style: none;
+            padding: 0
+        }
+
+        .hidden {
+            display: none !important
+        }
+
+        .lbl {
+            font-size: 10.5px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--mute)
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 500;
+            letter-spacing: -.025em;
+            line-height: 1.1
+        }
+
+        h2 {
+            font-size: clamp(26px, 3.3vw, 42px);
+            margin: 14px 0 18px
+        }
+
+        .wrap {
+            padding-inline: var(--pad);
+            max-width: 1440px;
+            margin-inline: auto
+        }
+
+        .g12 {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            column-gap: 24px
+        }
+
+        .mute {
+            color: var(--mute)
+        }
+
+        /* buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 22px;
+            background: var(--ink);
+            color: var(--bg);
+            border: 1px solid var(--ink);
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background .3s, color .3s
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--ink)
+        }
+
+        .btn.o {
+            background: transparent;
+            color: var(--ink)
+        }
+
+        .btn.o:hover {
+            background: var(--ink);
+            color: var(--bg)
+        }
+
+        .btn:disabled {
+            opacity: .35;
+            pointer-events: none
+        }
+
+        .ulink {
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 600
+        }
+
+        /* nav */
+        .nav {
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 50;
+            border-bottom: 1px solid transparent;
+            transition: background .4s, border-color .4s
+        }
+
+        .nav.s {
+            background: rgba(243, 240, 232, .9);
+            backdrop-filter: blur(14px);
+            border-color: var(--line)
+        }
+
+        .nav .in {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            font-size: 13px
+        }
+
+        .brand img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%
+        }
+
+        .brand i {
+            font-style: normal;
+            color: var(--sage)
+        }
+
+        .links {
+            display: flex;
+            gap: 32px
+        }
+
+        .links a {
+            position: relative;
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 600
+        }
+
+        .links a:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .35s
+        }
+
+        .links a:hover:after {
+            transform: scaleX(1)
+        }
+
+        .act {
+            display: flex;
+            align-items: center;
+            gap: 22px
+        }
+
+        .burger {
+            display: none
+        }
+
+        .mnav {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            padding: 18px var(--pad) 26px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .mnav a {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 4px 0
+        }
+
+        /* hero */
+        .hero {
+            min-height: 100svh;
+            padding-top: 96px;
+            padding-bottom: 40px;
+            grid-template-rows: 1fr auto
+        }
+
+        .hero .tx {
+            grid-column: 1/8;
+            align-self: center
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 4.8vw, 66px);
+            letter-spacing: -.035em;
+            margin: 18px 0 22px
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--sage)
+        }
+
+        .hero .tx>p:not(.lbl) {
+            max-width: 410px;
+            color: var(--mute);
+            margin-bottom: 30px
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .ph {
+            grid-column: 8/13;
+            grid-row: 1/3;
+            align-self: center;
+            position: relative;
+            aspect-ratio: 4/5;
+            max-height: 76vh;
+            margin-left: 40px
+        }
+
+        .ph .blk {
+            position: absolute;
+            inset: -18px 18px 18px -18px;
+            border: 1px solid var(--ink)
+        }
+
+        .z {
+            overflow: hidden;
+            position: relative
+        }
+
+        .ph .z {
+            height: 100%
+        }
+
+        .z img {
+            transform: scale(1.14);
+            will-change: transform
+        }
+
+        .tag {
+            position: absolute;
+            left: -64px;
+            bottom: 52px;
+            max-width: 230px;
+            padding: 16px 18px;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            font-size: 12.5px;
+            line-height: 1.5
+        }
+
+        .tag .lbl {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--ink)
+        }
+
+        .stats {
+            grid-column: 1/8;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--line);
+            align-self: end
+        }
+
+        .stats div {
+            padding: 16px 16px 0 0
+        }
+
+        .stats b {
+            display: block;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: -.02em
+        }
+
+        /* about */
+        .about {
+            padding-block: 120px
+        }
+
+        .about .hd {
+            grid-column: 1/5;
+            position: sticky;
+            top: 110px;
+            align-self: start
+        }
+
+        .about .hd p:not(.lbl) {
+            color: var(--mute)
+        }
+
+        .about ol {
+            grid-column: 6/13
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 56px 1fr;
+            gap: 12px;
+            padding: 26px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .row:last-child {
+            border-bottom: 1px solid var(--line)
+        }
+
+        .row h3 {
+            font-size: 18px;
+            margin-bottom: 6px
+        }
+
+        .row p {
+            color: var(--mute);
+            max-width: 46ch
+        }
+
+        /* process */
+        .proc {
+            background: var(--ink);
+            color: var(--bg);
+            padding-block: 120px 180px
+        }
+
+        .proc .lbl {
+            color: rgba(243, 240, 232, .55)
+        }
+
+        .proc .hd {
+            grid-column: 1/5
+        }
+
+        .proc .hd p:not(.lbl) {
+            opacity: .6
+        }
+
+        .steps {
+            grid-column: 6/13;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 40px
+        }
+
+        .sp {
+            position: relative;
+            padding: 22px 0 36px;
+            border-top: 1px solid rgba(243, 240, 232, .2)
+        }
+
+        .sp:nth-child(even) {
+            top: 56px
+        }
+
+        .sp b {
+            display: block;
+            margin-bottom: 26px;
+            font-size: 11px;
+            letter-spacing: .14em;
+            color: var(--yolk);
+            font-weight: 600
+        }
+
+        .sp h3 {
+            font-size: 17px;
+            margin-bottom: 6px
+        }
+
+        .sp p {
+            opacity: .6;
+            font-size: 13px
+        }
+
+        /* nutrition */
+        .nut {
+            padding-block: 120px
+        }
+
+        .nut .top {
+            max-width: 560px
+        }
+
+        .nut .top p:not(.lbl) {
+            color: var(--mute)
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(170px, auto);
+            gap: 14px;
+            margin-top: 48px
+        }
+
+        .bt {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative
+        }
+
+        .bt h3 {
+            font-size: 24px;
+            margin: 30px 0 8px
+        }
+
+        .bt p {
+            font-size: 13px;
+            max-width: 34ch;
+            opacity: .8
+        }
+
+        .bt .lbl {
+            color: inherit;
+            opacity: .65
+        }
+
+        .b1 {
+            grid-column: 1/6;
+            grid-row: 1/3;
+            background: var(--yolk)
+        }
+
+        .b2 {
+            grid-column: 6/13;
+            grid-row: 1;
+            background: var(--sage);
+            color: #fff
+        }
+
+        .b4 {
+            grid-column: 6/10;
+            grid-row: 2;
+            border: 1px solid var(--line)
+        }
+
+        .b5 {
+            grid-column: 10/13;
+            grid-row: 2;
+            background: var(--sage2)
+        }
+
+        .b5 p {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+            opacity: 1;
+            max-width: none
+        }
+
+        /* product */
+        .prod {
+            padding-block: 120px 170px;
+            border-top: 1px solid var(--line);
+            align-items: start
+        }
+
+        .prod .im {
+            grid-column: 1/8;
+            grid-row: 1;
+            aspect-ratio: 5/4;
+            position: relative
+        }
+
+        .prod .im .z {
+            height: 100%
+        }
+
+        .badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 2;
+            background: var(--bg);
+            padding: 6px 12px;
+            font-size: 10.5px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 700
+        }
+
+        .badge.out {
+            background: #b3261e;
+            color: #fff
+        }
+
+        .card {
+            grid-column: 7/13;
+            grid-row: 1;
+            z-index: 2;
+            margin-top: 150px;
+            padding: 36px;
+            background: var(--bg);
+            border: 1px solid var(--ink)
+        }
+
+        .card .pr {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px
+        }
+
+        .card h3 {
+            font-size: 28px
+        }
+
+        .card .pr span {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--sage)
+        }
+
+        .card>p {
+            color: var(--mute);
+            margin: 14px 0 22px
+        }
+
+        .spec {
+            display: flex;
+            justify-content: space-between;
+            padding: 11px 0;
+            border-top: 1px solid var(--line);
+            font-size: 13px
+        }
+
+        .spec:last-of-type {
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 26px
+        }
+
+        .card .btn {
+            width: 100%;
+            justify-content: center
+        }
+
+        /* order */
+        .order {
+            padding-block: 120px;
+            border-top: 1px solid var(--line)
+        }
+
+        .order .hd {
+            grid-column: 1/5
+        }
+
+        .order .hd p:not(.lbl) {
+            color: var(--mute)
+        }
+
+        .order form {
+            grid-column: 6/13
+        }
+
+        .f2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 28px
+        }
+
+        .fld {
+            display: block;
+            padding: 14px 0 8px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--line);
+            transition: border-color .3s
+        }
+
+        .fld:focus-within {
+            border-color: var(--ink)
+        }
+
+        .fld input,
+        .fld textarea {
+            display: block;
+            width: 100%;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            padding: 6px 0;
+            font-size: 15px;
+            resize: none
+        }
+
+        .qty {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .qty input {
+            text-align: center;
+            font-weight: 600
+        }
+
+        .qb {
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--line);
+            font-size: 16px;
+            flex: none;
+            transition: background .25s, color .25s
+        }
+
+        .qb:hover {
+            background: var(--ink);
+            color: var(--bg)
+        }
+
+        .tot {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 14px 0 8px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .tot b {
+            font-size: 22px;
+            font-weight: 500
+        }
+
+        .warn {
+            color: #b3261e;
+            font-size: 12px;
+            margin-bottom: 8px
+        }
+
+        .order .btn {
+            margin-top: 22px
+        }
+
+        /* footer */
+        footer {
+            background: var(--ink);
+            color: var(--bg);
+            padding-top: 80px;
+            overflow: hidden
+        }
+
+        footer .lbl {
+            color: rgba(243, 240, 232, .5);
+            margin-bottom: 14px;
+            display: block
+        }
+
+        footer p,
+        footer li,
+        footer .ulink {
+            font-size: 13px;
+            opacity: .8
+        }
+
+        footer a:hover,
+        footer .ulink:hover {
+            color: var(--yolk)
+        }
+
+        footer li {
+            margin-bottom: 6px
+        }
+
+        .fb {
+            grid-column: 1/6;
+            max-width: 340px
+        }
+
+        .fn {
+            grid-column: 7/10
+        }
+
+        .fc {
+            grid-column: 10/13
+        }
+
+        .mark {
+            font-size: clamp(48px, 14vw, 200px);
+            font-weight: 600;
+            letter-spacing: -.05em;
+            line-height: .78;
+            margin-top: 70px;
+            color: rgba(243, 240, 232, .09);
+            white-space: nowrap
+        }
+
+        .copy {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 22px 0;
+            border-top: 1px solid rgba(243, 240, 232, .15);
+            font-size: 11px;
+            opacity: .7
+        }
+
+        /* admin */
+        .alog {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px
+        }
+
+        .abox {
+            width: 100%;
+            max-width: 380px
+        }
+
+        .abox img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            margin-bottom: 26px
+        }
+
+        .abox h2 {
+            margin: 0 0 6px;
+            font-size: 26px
+        }
+
+        .err {
+            border-left: 2px solid #b3261e;
+            padding: 8px 12px;
+            color: #b3261e;
+            font-size: 12px;
+            margin: 16px 0
+        }
+
+        .abox .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 20px
+        }
+
+        .back {
+            display: block;
+            margin: 18px auto 0;
+            font-size: 12px;
+            color: var(--mute)
+        }
+
+        .demo {
+            margin-top: 26px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            font-size: 11px;
+            color: var(--mute)
+        }
+
+        .ah {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 16px var(--pad);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .ah div {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .am {
+            padding: 40px var(--pad) 90px;
+            max-width: 1280px;
+            margin: auto
+        }
+
+        .kpi {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-block: 1px solid var(--line)
+        }
+
+        .kpi div {
+            padding: 22px 20px;
+            border-right: 1px solid var(--line)
+        }
+
+        .kpi div:first-child {
+            padding-left: 0
+        }
+
+        .kpi div:last-child {
+            border: 0
+        }
+
+        .kpi b {
+            display: block;
+            font-size: 26px;
+            font-weight: 500;
+            letter-spacing: -.02em;
+            margin-top: 4px
+        }
+
+        .pan {
+            margin-top: 56px
+        }
+
+        .pan h2 {
+            font-size: 20px;
+            margin: 0 0 4px
+        }
+
+        .pan header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 22px
+        }
+
+        .pgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 28px
+        }
+
+        .tw {
+            overflow-x: auto
+        }
+
+        table {
+            width: 100%;
+            min-width: 720px;
+            border-collapse: collapse;
+            font-size: 13px
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--ink);
+            font-size: 10.5px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--mute);
+            font-weight: 600
+        }
+
+        td {
+            padding: 14px 10px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top
+        }
+
+        .mono {
+            font-variant-numeric: tabular-nums;
+            color: var(--mute);
+            white-space: nowrap
+        }
+
+        .sel {
+            border: 1px solid var(--line);
+            background: transparent;
+            padding: 4px 8px;
+            font-size: 12px
+        }
+
+        .x {
+            font-size: 12px;
+            color: var(--mute)
+        }
+
+        .x:hover {
+            color: #b3261e
+        }
+
+        #toast {
+            position: fixed;
+            left: var(--pad);
+            bottom: 24px;
+            z-index: 99;
+            padding: 12px 18px;
+            background: var(--ink);
+            color: var(--bg);
+            font-size: 12px;
+            opacity: 0;
+            transform: translateY(16px);
+            pointer-events: none;
+            transition: opacity .35s, transform .35s
+        }
+
+        #toast.on {
+            opacity: 1;
+            transform: none
+        }
+
+        #toast.er {
+            background: #b3261e
+        }
+
+        /* motion */
+        .rv {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform .9s cubic-bezier(.2, .7, .2, 1);
+            transition-delay: calc(var(--d, 0)*90ms)
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none
+        }
+
+        @media(min-width:901px) {
+            .mnav {
+                display: none !important
+            }
+        }
+
+        @media(max-width:900px) {
+
+            .links,
+            .act .btn,
+            .act .ulink {
+                display: none
+            }
+
+            .burger {
+                display: block;
+                font-size: 11px;
+                letter-spacing: .12em;
+                text-transform: uppercase;
+                font-weight: 600
+            }
+
+            .g12 {
+                display: block
+            }
+
+            .hero {
+                padding-top: 92px
+            }
+
+            .hero h1 {
+                margin-top: 14px
+            }
+
+            .ph {
+                margin: 48px 0 0 14%;
+                max-height: none
+            }
+
+            .ph .blk {
+                inset: -12px 12px 12px -12px
+            }
+
+            .tag {
+                left: -14%;
+                bottom: 24px
+            }
+
+            .stats {
+                margin-top: 44px
+            }
+
+            .about,
+            .nut,
+            .order {
+                padding-block: 80px
+            }
+
+            .about .hd,
+            .order .hd {
+                position: static;
+                margin-bottom: 30px
+            }
+
+            .proc {
+                padding-block: 80px 90px
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                margin-top: 34px
+            }
+
+            .sp:nth-child(even) {
+                top: 0;
+                margin-left: 26px
+            }
+
+            .bento {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .bento>* {
+                grid-column: auto;
+                grid-row: auto
+            }
+
+            .b1,
+            .b2 {
+                grid-column: 1/3
+            }
+
+            .prod {
+                padding-block: 80px 90px
+            }
+
+            .card {
+                margin: -56px 14px 0 22px;
+                position: relative;
+                padding: 26px
+            }
+
+            .f2,
+            .pgrid {
+                grid-template-columns: 1fr
+            }
+
+            .fb,
+            .fn,
+            .fc {
+                max-width: none;
+                margin-bottom: 34px
+            }
+
+            .kpi {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .kpi div:nth-child(2) {
+                border-right: 0
+            }
+
+            .kpi div:nth-child(3) {
+                padding-left: 0
+            }
+
+            .kpi div:nth-child(n+3) {
+                border-top: 1px solid var(--line)
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            * {
+                transition: none !important;
+                animation: none !important
+            }
+
+            .rv {
+                opacity: 1;
+                transform: none
+            }
+
+            .z img {
+                transform: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="landing">
+        <header class="nav" id="nav">
+            <div class="wrap in">
+                <a href="#home" class="brand"><img src="./logo.jpg" alt="Logo EGGWICH">EGG<i>WICH</i></a>
+                <nav class="links" aria-label="Navigasi utama"><a href="#about">About</a><a href="#cara">Cara
+                        Pembuatan</a><a href="#manfaat">Manfaat Gizi</a><a href="#produk">Produk</a></nav>
+                <div class="act"><button class="ulink" onclick="showAdmin()">Admin</button><a href="#pesan"
+                        class="btn">Pesan</a><button class="burger" onclick="toggleMenu()"
+                        aria-label="Menu">Menu</button></div>
+            </div>
+            <nav class="mnav hidden" id="mnav" aria-label="Navigasi mobile"><a href="#about"
+                    onclick="toggleMenu()">About</a><a href="#cara" onclick="toggleMenu()">Cara Pembuatan</a><a
+                    href="#manfaat" onclick="toggleMenu()">Manfaat Gizi</a><a href="#produk"
+                    onclick="toggleMenu()">Produk</a><a href="#pesan" onclick="toggleMenu()"><b>Pesan sekarang
+                        →</b></a><button class="ulink" style="text-align:left" onclick="toggleMenu();showAdmin()">Portal
+                    Admin</button></nav>
+        </header>
+
+        <main>
+            <section id="home" class="wrap g12 hero">
+                <div class="tx">
+                    <p class="lbl rv">Healthy food choice</p>
+                    <h1 class="rv" style="--d:1">Good food,<br><em>better growth.</em></h1>
+                    <p class="rv" style="--d:2">Eggwich, sandwich lezat dengan isian telur yang praktis dan bergizi
+                        untuk mendukung pemenuhan nutrisi harian anak dan keluarga serta upaya pencegahan stunting.</p>
+                    <div class="cta rv" style="--d:3"><a href="#pesan" class="btn">Pesan sekarang →</a><a href="#cara"
+                            class="btn o">Cara pembuatan</a></div>
+                </div>
+                <figure class="ph rv" style="--d:2">
+                    <div class="blk" data-p="-.06"></div>
+                    <div class="z" style="overflow: visible;display: flex;justify-content: center;"><img id="heroImg" src="./product.png" style="width: 32rem;position: absolute;object-fit: contain; translate: -1.25rem 0;" alt="Eggwich sandwich telur bergizi"></div>
+                    <figcaption class="tag" data-p=".1"><span class="lbl">Gizi lengkap &amp; seimbang</span>Karbohidrat,
+                        protein, dan serat alami dalam satu gigitan.</figcaption>
+                </figure>
+                <div class="stats rv" style="--d:4">
+                    <div><b>100%</b><span class="lbl">Bahan segar</span></div>
+                    <div><b>Tinggi</b><span class="lbl">Protein telur</span></div>
+                    <div><b>Ekonomis</b><span class="lbl">Harga terjangkau</span></div>
+                </div>
+            </section>
+
+            <section id="about" class="wrap g12 about">
+                <div class="hd">
+                    <p class="lbl rv">01 — Tentang kami</p>
+                    <h2 class="rv" style="--d:1">Solusi sandwich telur yang bergizi dan praktis.</h2>
+                    <p class="rv" style="--d:2">EGGWICH dirancang sebagai alternatif makanan praktis, bergizi seimbang,
+                        dan ramah di kantong, untuk mendukung tumbuh kembang anak serta edukasi pencegahan stunting.</p>
+                </div>
+                <ol>
+                    <li class="row rv"><span class="lbl">A</span>
+                        <div>
+                            <h3>Protein telur berkualitas</h3>
+                            <p>Sumber protein hewani lengkap dengan asam amino esensial dan kolin yang penting untuk
+                                kecerdasan otak anak.</p>
+                        </div>
+                    </li>
+                    <li class="row rv" style="--d:1"><span class="lbl">B</span>
+                        <div>
+                            <h3>Praktis &amp; siap santap</h3>
+                            <p>Dikemas higienis, cocok untuk sarapan cepat, bekal sekolah, maupun konsumsi harian
+                                keluarga yang aktif.</p>
+                        </div>
+                    </li>
+                    <li class="row rv" style="--d:2"><span class="lbl">C</span>
+                        <div>
+                            <h3>Pola makan seimbang</h3>
+                            <p>Membiasakan asupan karbohidrat, protein, dan serat untuk mendukung pertumbuhan fisik yang
+                                sehat.</p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+
+            <section id="cara" class="proc">
+                <div class="wrap g12">
+                    <div class="hd">
+                        <p class="lbl rv">02 — Proses higienis</p>
+                        <h2 class="rv" style="--d:1">Cara pembuatan Eggwich.</h2>
+                        <p class="rv" style="--d:2">Dibuat dengan standar kebersihan tinggi dan bahan alami tanpa
+                            pengawet.</p>
+                    </div>
+                    <ol class="steps">
+                        <li class="sp rv"><b>01</b>
+                            <h3>Persiapan bahan segar</h3>
+                            <p>Roti tawar lembut, telur ayam berkualitas, sayuran segar (selada/tomat), dan bumbu
+                                pelengkap.</p>
+                        </li>
+                        <li class="sp rv" style="--d:1"><b>02</b>
+                            <h3>Memasak telur matang sempurna</h3>
+                            <p>Telur dimasak higienis dengan kematangan tepat untuk menjaga nutrisi terbaiknya.</p>
+                        </li>
+                        <li class="sp rv"><b>03</b>
+                            <h3>Penyusunan isian telur</h3>
+                            <p>Roti panggang lembut diisi telur olahan yang gurih dan bernutrisi tinggi.</p>
+                        </li>
+                        <li class="sp rv" style="--d:1"><b>04</b>
+                            <h3>Penambahan sayuran segar</h3>
+                            <p>Selada dan daun segar sebagai serat alami sekaligus penyeimbang rasa.</p>
+                        </li>
+                        <li class="sp rv"><b>05</b>
+                            <h3>Penutupan lapisan sandwich</h3>
+                            <p>Isian ditutup lapisan roti kedua agar rapi dan nikmat di setiap gigitan.</p>
+                        </li>
+                        <li class="sp rv" style="--d:1"><b>06</b>
+                            <h3>Pemotongan &amp; pengemasan</h3>
+                            <p>Dipotong rapi dan dikemas ramah lingkungan, higienis, siap dinikmati.</p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="manfaat" class="wrap nut">
+                <div class="top">
+                    <p class="lbl rv">03 — Edukasi nutrisi</p>
+                    <h2 class="rv" style="--d:1">Gizi seimbang untuk mencegah stunting.</h2>
+                    <p class="rv" style="--d:2">Pencegahan stunting dimulai dari asupan gizi seimbang sejak dini.
+                        Eggwich memadukan bahan padat nutrisi untuk pertumbuhan tulang, otot, dan perkembangan otak
+                        anak.</p>
+                </div>
+                <div class="bento">
+                    <article class="bt b1 rv"><span class="lbl">Telur ayam</span>
+                        <div>
+                            <h3>Protein &amp; kolin</h3>
+                            <p>Membentuk jaringan otot, meningkatkan kekebalan tubuh, dan mendukung daya ingat otak
+                                anak.</p>
+                        </div>
+                    </article>
+                    <article class="bt b2 rv" style="--d:1"><span class="lbl">Roti tawar</span>
+                        <div>
+                            <h3>Karbohidrat kompleks</h3>
+                            <p>Sumber energi utama untuk aktivitas dan belajar anak.</p>
+                        </div>
+                    </article>
+                    <article class="bt b4 rv" style="--d:2"><span class="lbl">Sayuran segar</span>
+                        <div>
+                            <h3>Serat &amp; vitamin</h3>
+                            <p>Menjaga pencernaan tetap sehat dan menyediakan mikronutrisi alami.</p>
+                        </div>
+                    </article>
+                    <article class="bt b5 rv" style="--d:3"><span class="lbl">Catatan</span>
+                        <p>Asupan protein hewani harian yang cukup sangat penting untuk mengoptimalkan pertumbuhan
+                            tinggi badan anak.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="produk" class="wrap g12 prod">
+                <div class="im rv"><span class="badge" id="pBadge">Tersedia</span>
+                    <div class="z"><img id="pImg" src="./product.png" alt="Eggwich sandwich"
+                            style="object-position:50% 40%;scale: 0.85"></div>
+                </div>
+                <div class="card rv" style="--d:2">
+                    <p class="lbl">04 — Produk kami</p>
+                    <div class="pr" style="margin-top:12px">
+                        <h3 id="pName">EGGWICH</h3><span id="pPrice">Rp 15.000</span>
+                    </div>
+                    <p id="pDesc">Sandwich isi telur lezat, praktis, dan kaya protein.</p>
+                    <div class="spec"><span class="mute">Status stok</span><b id="pStock">50 porsi</b></div>
+                    <div class="spec"><span class="mute">Kategori</span><b>Healthy fast food</b></div>
+                    <button class="btn" id="buy"
+                        onclick="document.getElementById('pesan').scrollIntoView({behavior:'smooth'})">Beli sekarang
+                        →</button>
+                </div>
+            </section>
+
+            <section id="pesan" class="wrap g12 order">
+                <div class="hd">
+                    <p class="lbl rv">05 — Formulir pemesanan</p>
+                    <h2 class="rv" style="--d:1">Pesan Eggwich sekarang.</h2>
+                    <p class="rv" style="--d:2">Pesanan akan langsung terhubung ke WhatsApp kami.</p>
+                </div>
+                <form id="orderForm" onsubmit="submitOrder(event)" class="rv" style="--d:2">
+                    <div class="f2">
+                        <label class="fld"><span class="lbl">Nama pembeli *</span><input id="oName" required
+                                placeholder="Contoh: Budi Santoso"></label>
+                        <label class="fld"><span class="lbl">Nomor WhatsApp *</span><input id="oPhone" type="tel"
+                                required placeholder="081234567890"></label>
+                    </div>
+                    <div class="f2">
+                        <div class="fld"><span class="lbl">Jumlah pesanan *</span>
+                            <div class="qty"><button type="button" class="qb" onclick="adjustQty(-1)"
+                                    aria-label="Kurangi">−</button><input id="qty" type="number" min="1" value="1"
+                                    readonly aria-label="Jumlah"><button type="button" class="qb" onclick="adjustQty(1)"
+                                    aria-label="Tambah">+</button></div>
+                        </div>
+                        <div class="tot"><span class="lbl">Total harga</span><b id="total">Rp 15.000</b></div>
+                    </div>
+                    <p class="warn hidden" id="warn">Melebihi stok yang tersedia!</p>
+                    <label class="fld"><span class="lbl">Alamat pengiriman / lokasi pengambilan *</span><textarea
+                            id="oAddr" rows="3" required
+                            placeholder="Alamat lengkap atau lokasi pertemuan"></textarea></label>
+                    <button type="submit" class="btn" id="btnSubmit">Kirim pesanan via WhatsApp →</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <div class="wrap">
+                <div class="g12">
+                    <div class="fb"><span class="lbl">EGGWICH</span>
+                        <p>Brand sandwich telur bergizi yang berkomitmen mendukung tumbuh kembang anak dan upaya
+                            pencegahan stunting melalui asupan praktis dan terjangkau.</p>
+                    </div>
+                    <div class="fn"><span class="lbl">Navigasi</span>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#cara">Cara Pembuatan</a></li>
+                            <li><a href="#manfaat">Manfaat Gizi</a></li>
+                            <li><a href="#pesan">Pemesanan</a></li>
+                        </ul>
+                    </div>
+                    <div class="fc"><span class="lbl">Kontak</span>
+                        <ul>
+                            <li>+62 895-4228-13909</li>
+                            <li>banuzakiarkanasaid@gmail.com</li>
+                            <li>Indonesia</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mark" aria-hidden="true">EGGWICH</div>
+                <div class="copy"><span>&copy; 2026 EGGWICH. X RPL 1 / K7. All rights reserved.</span><button
+                        class="ulink" onclick="showAdmin()">Portal Admin</button></div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="alogin" class="hidden alog">
+        <div class="abox">
+            <img src="./logo.jpg" alt="Logo">
+            <p class="lbl">Portal admin</p>
+            <h2>Login EGGWICH</h2>
+            <p class="mute" style="font-size:13px">Masukkan kredensial untuk mengelola produk dan pesanan.</p>
+            <div id="lerr" class="err hidden">Username atau password salah!</div>
+            <form onsubmit="adminLogin(event)" style="margin-top:18px">
+                <label class="fld"><span class="lbl">Username</span><input id="aUser" required
+                        placeholder="Masukkan username" autocomplete="username"></label>
+                <label class="fld"><span class="lbl">Password</span><input id="aPass" type="password" required
+                        placeholder="Masukkan password" autocomplete="current-password"></label>
+                <button class="btn" type="submit">Masuk ke dashboard</button>
+                <button class="back" type="button" onclick="showLanding()">← Kembali ke landing page</button>
+            </form>
+            <p class="demo">Demo login — user: <b>admin</b> · pass: <b>12345678</b></p>
+        </div>
+    </div>
+
+    <div id="adash" class="hidden">
+        <div class="ah"><span class="brand"><img src="./logo.jpg" alt="Logo">EGG<i>WICH</i> <span
+                    class="lbl">&nbsp;Admin</span></span>
+            <div><button class="btn o" onclick="showLanding()">Lihat web</button><button class="btn o"
+                    onclick="adminLogout()">Logout</button></div>
+        </div>
+        <main class="am">
+            <div class="kpi">
+                <div><span class="lbl">Total stok</span><b id="kStock">0</b></div>
+                <div><span class="lbl">Total pesanan</span><b id="kOrders">0</b></div>
+                <div><span class="lbl">Total pendapatan</span><b id="kRev">Rp 0</b></div>
+                <div><span class="lbl">Status produk</span><b id="kStat">Tersedia</b></div>
+            </div>
+            <section class="pan">
+                <header>
+                    <div>
+                        <h2>Manajemen produk</h2>
+                        <p class="mute">Kelola harga, stok, dan tampilan produk Eggwich.</p>
+                    </div><span class="lbl">Single product mode</span>
+                </header>
+                <form onsubmit="saveProduct(event)">
+                    <div class="pgrid">
+                        <label class="fld"><span class="lbl">Nama produk</span><input id="aName" readonly></label>
+                        <label class="fld"><span class="lbl">Harga produk (Rp)</span><input id="aPrice" type="number"
+                                min="0" required></label>
+                        <label class="fld"><span class="lbl">Jumlah stok saat ini</span><input id="aStock" type="number"
+                                min="0" required></label>
+                        <label class="fld"><span class="lbl">URL foto produk</span><input id="aImg" type="url"
+                                required></label>
+                    </div>
+                    <label class="fld"><span class="lbl">Deskripsi produk</span><textarea id="aDesc" rows="3"
+                            required></textarea></label>
+                    <button class="btn" type="submit" style="margin-top:16px">Simpan perubahan</button>
+                </form>
+            </section>
+            <section class="pan">
+                <header>
+                    <div>
+                        <h2>Daftar pesanan masuk</h2>
+                        <p class="mute">Pantau dan kelola pesanan pelanggan.</p>
+                    </div><button class="btn o" onclick="clearOrders()">Reset semua pesanan</button>
+                </header>
+                <div class="tw">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Pembeli</th>
+                                <th>WhatsApp</th>
+                                <th>Jml</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="oBody"></tbody>
+                    </table>
+                </div>
+                <p id="noOrd" class="mute hidden" style="padding:32px 0;text-align:center">Belum ada pesanan masuk.</p>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+        const RM = matchMedia('(prefers-reduced-motion:reduce)').matches;
+        const $ = id => document.getElementById(id);
+        const DEF_P = { id: 'eggwich-01', name: 'EGGWICH', price: 15000, stock: 50, description: 'Sandwich isi telur lezat, praktis, dan kaya protein untuk mendukung kecukupan nutrisi harian serta pencegahan stunting.', image: './product.png' };
+        const DEF_O = [
+            { id: 'ORD-1001', date: '2026-03-01 08:30', name: 'Siti Rahma', phone: '081234567890', qty: 2, total: 30000, address: 'Jl. Merdeka No. 12, Jakarta', status: 'Selesai' },
+            { id: 'ORD-1002', date: '2026-03-02 10:15', name: 'Budi Santoso', phone: '085712345678', qty: 3, total: 45000, address: 'Komp. Asri Blok C2, Bandung', status: 'Diproses' }];
+        const S = { product: null, orders: [], login: false };
+        const rp = n => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(n);
+        const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]));
+        function load(k, d) { try { const v = localStorage.getItem(k); if (v) return JSON.parse(v) } catch (e) { } return d }
+        function persist() { try { localStorage.setItem('eggwich_product', JSON.stringify(S.product)); localStorage.setItem('eggwich_orders', JSON.stringify(S.orders)) } catch (e) { } }
+        function saveState() { persist(); renderProduct(); if (S.login) renderAdmin() }
+        function showToast(m, err) { const t = $('toast'); t.textContent = m; t.classList.toggle('er', !!err); t.classList.add('on'); clearTimeout(showToast.t); showToast.t = setTimeout(() => t.classList.remove('on'), 3000) }
+        function toggleMenu() { $('mnav').classList.toggle('hidden') }
+
+        /* views */
+        function view(v) { $('landing').classList.toggle('hidden', v !== 'l'); $('alogin').classList.toggle('hidden', v !== 'a' || S.login); $('adash').classList.toggle('hidden', v !== 'a' || !S.login); scrollTo(0, 0) }
+        function showLanding() { view('l'); try { history.replaceState(null, '', location.pathname + location.search) } catch (e) { } renderProduct(); frame() }
+        function showAdmin() { view('a'); if (S.login) renderAdmin(); location.hash = 'admin' }
+
+        /* landing */
+        function renderProduct() {
+            const p = S.product, ok = p.stock > 0, q = $('qty');
+            $('pName').textContent = p.name; $('pPrice').textContent = rp(p.price); $('pDesc').textContent = p.description;
+            $('pImg').src = p.image; $('heroImg').src = p.image;
+            const b = $('pBadge'); b.textContent = ok ? 'Tersedia' : 'Stok habis'; b.classList.toggle('out', !ok);
+            $('pStock').textContent = ok ? p.stock + ' porsi' : 'Habis (0 porsi)';
+            $('buy').disabled = !ok; $('buy').textContent = ok ? 'Beli sekarang →' : 'Stok habis'; $('btnSubmit').disabled = !ok;
+            if ((parseInt(q.value) || 1) > p.stock) q.value = Math.max(1, p.stock);
+            calcTotal();
+        }
+        function adjustQty(n) {
+            const q = $('qty'), v = Math.max(1, (parseInt(q.value) || 1) + n);
+            if (v > S.product.stock) { $('warn').classList.remove('hidden'); return }
+            $('warn').classList.add('hidden'); q.value = v; calcTotal();
+        }
+        function calcTotal() { $('total').textContent = rp((parseInt($('qty').value) || 1) * S.product.price) }
+        function submitOrder(e) {
+            e.preventDefault(); const p = S.product;
+            if (p.stock <= 0) { showToast('Maaf, stok Eggwich saat ini sedang habis!', true); return }
+            const name = $('oName').value.trim(), phone = $('oPhone').value.trim(), addr = $('oAddr').value.trim(), qty = parseInt($('qty').value) || 1;
+            if (qty > p.stock) { showToast('Jumlah pesanan melebihi stok yang tersedia!', true); return }
+            const total = qty * p.price, d = new Date(), z = n => String(n).padStart(2, '0');
+            const o = { id: 'ORD-' + Date.now().toString().slice(-6), date: `${d.getFullYear()}-${z(d.getMonth() + 1)}-${z(d.getDate())} ${z(d.getHours())}:${z(d.getMinutes())}`, name, phone, qty, total, address: addr, status: 'Pending' };
+            p.stock -= qty; S.orders.unshift(o); saveState();
+            const msg = `Halo EGGWICH! Saya ingin memesan:\n\n*ID Pesanan:* ${o.id}\n*Nama:* ${name}\n*No WA:* ${phone}\n*Jumlah:* ${qty} porsi EGGWICH\n*Total Harga:* ${rp(total)}\n*Alamat/Lokasi:* ${addr}\n\nMohon segera diproses. Terima kasih!`;
+            showToast('Pesanan berhasil dibuat! Membuka WhatsApp...');
+            $('orderForm').reset(); $('qty').value = 1; calcTotal();
+            setTimeout(() => window.open('https://wa.me/62895422813909?text=' + encodeURIComponent(msg), '_blank'), 900);
+        }
+
+        /* admin */
+        function adminLogin(e) {
+            e.preventDefault();
+            if ($('aUser').value === 'admin' && $('aPass').value === '12345678') { S.login = true; $('lerr').classList.add('hidden'); view('a'); renderAdmin(); showToast('Selamat datang, Admin!') }
+            else $('lerr').classList.remove('hidden');
+        }
+        function adminLogout() { if (confirm('Apakah Anda yakin ingin logout?')) { S.login = false; showLanding(); showToast('Logout berhasil.') } }
+        function renderAdmin() {
+            const p = S.product, o = S.orders;
+            $('kStock').textContent = p.stock; $('kOrders').textContent = o.length;
+            $('kRev').textContent = rp(o.reduce((a, c) => c.status !== 'Dibatalkan' ? a + c.total : a, 0));
+            $('kStat').textContent = p.stock > 0 ? 'Tersedia' : 'Stok habis';
+            $('aName').value = p.name; $('aPrice').value = p.price; $('aStock').value = p.stock; $('aImg').value = p.image; $('aDesc').value = p.description;
+            renderOrders();
+        }
+        function saveProduct(e) {
+            e.preventDefault(); const p = S.product;
+            p.price = parseInt($('aPrice').value) || 0; p.stock = parseInt($('aStock').value) || 0; p.image = $('aImg').value.trim(); p.description = $('aDesc').value.trim();
+            saveState(); showToast('Data produk berhasil diperbarui!');
+        }
+        function renderOrders() {
+            $('noOrd').classList.toggle('hidden', S.orders.length > 0);
+            $('oBody').innerHTML = S.orders.map(o => `<tr><td class="mono">${esc(o.date)}</td><td><b>${esc(o.name)}</b><br><span class="mute">${esc(o.address)}</span></td><td>${esc(o.phone)}</td><td>${o.qty}</td><td><b>${rp(o.total)}</b></td><td><select class="sel" onchange="updOrder('${esc(o.id)}',this.value)">${['Pending', 'Diproses', 'Selesai', 'Dibatalkan'].map(s => `<option${o.status === s ? ' selected' : ''}>${s}</option>`).join('')}</select></td><td><button class="x" onclick="delOrder('${esc(o.id)}')">Hapus</button></td></tr>`).join('');
+        }
+        function updOrder(id, st) {
+            const o = S.orders.find(x => x.id === id); if (!o) return;
+            const old = o.status; o.status = st;
+            if (st === 'Dibatalkan' && old !== 'Dibatalkan') { S.product.stock += o.qty; showToast(`Pesanan dibatalkan. Stok dikembalikan +${o.qty}`) }
+            else if (old === 'Dibatalkan' && st !== 'Dibatalkan') { S.product.stock = Math.max(0, S.product.stock - o.qty); showToast(`Status diperbarui. Stok dipotong -${o.qty}`) }
+            else showToast(`Status pesanan ${id} diubah ke ${st}`);
+            saveState();
+        }
+        function delOrder(id) { if (confirm(`Apakah Anda yakin ingin menghapus data pesanan ${id}?`)) { S.orders = S.orders.filter(o => o.id !== id); saveState(); showToast('Pesanan telah dihapus.') } }
+        function clearOrders() { if (confirm('PERINGATAN: Hapus SELURUH daftar pesanan?')) { S.orders = []; saveState(); showToast('Semua data pesanan berhasil dibersihkan.') } }
+
+        /* motion: nav state, parallax, image scale, reveal */
+        const nav = $('nav'), px = [...document.querySelectorAll('[data-p]')], zs = [...document.querySelectorAll('.z')];
+        let tick = false;
+        function frame() {
+            tick = false; nav.classList.toggle('s', scrollY > 20);
+            if (RM || $('landing').classList.contains('hidden')) return;
+            const vh = innerHeight;
+            px.forEach(e => { const r = e.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) return; e.style.transform = `translate3d(0,${((r.top + r.height / 2 - vh / 2) * parseFloat(e.dataset.p)).toFixed(1)}px,0)` });
+            zs.forEach(e => { const r = e.getBoundingClientRect(), im = e.querySelector('img'); if (!im || r.bottom < 0 || r.top > vh) return; const t = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height))); im.style.transform = `scale(${(1.14 - .14 * t).toFixed(3)})` });
+        }
+        addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(frame) } }, { passive: true });
+        addEventListener('resize', frame);
+        const rv = document.querySelectorAll('.rv');
+        if ('IntersectionObserver' in window && !RM) {
+            const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } }), { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+            rv.forEach(e => io.observe(e));
+        } else rv.forEach(e => e.classList.add('in'));
+
+        /* init */
+        S.product = load('eggwich_product', null) || DEF_P;
+        S.orders = load('eggwich_orders', null) || DEF_O;
+        persist(); renderProduct(); frame();
+        if (location.hash === '#admin') showAdmin();
+    </script>
+</body>
+
+</html>
